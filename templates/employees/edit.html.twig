@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+{% block title %}
+  <h1 style="color: #007bff; font-family: 'Arial', sans-serif;">Modifier Employee</h1>
+{% endblock %}
+ {{ form_start(form) }}
+ {{ form_widget(form) }}
+
+ {{ form_end(form) }}
+{% endblock %}

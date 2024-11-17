@@ -1,0 +1,92 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <style>
+    body{
+    margin:0;
+    background-image:url("../../public/image/photo emp.jpg") ;
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+   label
+{
+    width:250px;
+    height:60px;
+    border-radius:10px;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    background-color:black;
+    color:white;
+    display:flex;
+    font-size:xx-large;
+    text-align:center;
+    justify-content:center;
+    padding:auto;
+}
+    .form{
+        width:50vw;
+        margin:auto;
+        height:60vh;
+        padding-top:30px;
+
+    }
+    input{
+        display:block;
+        width:300px;
+        border-radius:20px;
+        margin:10px;
+        text-align:center;
+        height:40px;
+        font-size:x-large;
+    }
+    button{
+        border-radius:20px;
+        margin:10px;
+        height:60px;
+        width:150px;
+        background-color:black;
+        color:white;
+        font-size:xx-large;
+        border:2px solid white;
+    }
+    .a1{
+    height:60px;
+    width:150px;
+    background-color:grey;
+    text-decoration:none;
+    color:white;
+    border-radius:10px;
+    margin:10px;
+    text-align:center;
+    display:flex;
+    justify-content:center;
+    padding:auto;
+    font-size:xx-large;
+    border:2px solid white;
+
+    
+}
+   
+
+    
+    </style>
+
+
+<header>    <center><h1>Login </h1></center></header>
+<div class="container">
+{% if error %}
+ <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+{% endif %}
+<form action="{{ path('login') }}" method="post">
+<center>
+<label for="username">Username</label>
+ <input type="text" id="username" name="_username" value="{{ last_username }}"/>
+ <label for="password">Password</label>
+ <input type="password" id="password" name="_password"/>
+ <button type="submit">login</button>
+ <center><a class="a1" href="{{ path('user_registration') }}">Register</a></center>
+ </center>
+</form>
+</div>
+{% endblock %} 

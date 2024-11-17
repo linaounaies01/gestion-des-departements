@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Liste des Departements {% endblock %}
+
+{% block body %}
+
+{% if departements %}
+    <table id="departements" class="table table-striped">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>nom</th>
+                <th>Responsable</th>
+                <th>nombre des salariés</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for departement in departements %}
+            <tr>
+                <td>{{ departement.id }}</td>
+                <td>{{ departement.nomd }}</td>
+                <td>{{ departement.resp }}</td>
+                <td>{{departement.nbrs}}</td>
+
+                <td>
+                    <a href="{{ path('departement_show', {'id': departement.id}) }}" class="btn btn-dark">Détails</a>
+                    <a href="{{ path('delete_departement', {'id': departement.id}) }}" class="btn btn-warning"
+                        onclick="return confirm('Etes-vous sûr de supprimer {{ departement.nomd }}?');">Supprimer</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>Aucune Departement trouvé</p>
+{% endif %}
+{% endblock %}

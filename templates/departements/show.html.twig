@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}{{ departement.nomd }}{% endblock %}
+
+{% block body %}
+<h1>{{ departement.nomd }}</h1>
+<h1>{{ departement.resp }}</h1>
+<h1>{{ departement.nbrs }}</h1>
+
+
+ <hr>
+<a href="../home1" class="btn btn-info">Retour au liste de département</a>
+ 
+{% endblock %}

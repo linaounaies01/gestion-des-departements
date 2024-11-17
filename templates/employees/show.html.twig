@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ employee.nom }}{% endblock %}
+
+{% block body %}
+<h1>{{ employee.nom }}</h1>
+<h1>{{ employee.salaire }}</h1>
+<h1>{{ employee.bornat|date('Y-m-d') }}</h1>
+<h1>{{ employee.email }}</h1>
+
+
+ <hr>
+<a href="../home" class="btn btn-info">Retour au liste des employees</a>
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+{% block title%} Liste des Employees {% endblock %}
+{% block body %}
+
+ {% if employees %}
+ <a href="{{path('security_logout')}}">sign out</a>
+    <table id="employees" class="table table-striped">
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>Nom</th>
+          <th>Salaire</th>
+          <th>email</th>
+
+
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for employee in employees %}
+          <tr>
+            <td>{{ employee.id }}</td>
+            <td>{{ employee.nom }}</td>
+            <td>{{ employee.salaire }}</td>
+            <td>{{ employee.email }}</td>
+
+
+
+
+<td>
+                        <a href="{{ path('employee_show', {'id': employee.id}) }}" class="btn btn-dark">Détails</a>
+                        <a href="{{ path('edit_employee', {'id': employee.id}) }}" class="btn btn-warning">Modifier</a>
+                        <a href="{{ path('delete_employee', {'id': employee.id}) }}" class="btn btn-warning"
+                           onclick="return confirm('Etes-vous sûr de supprimer {{ employee.nom }}?');">Supprimer</a>
+                    </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>Aucun employee trouvé</p>
+  {% endif %} 
+{% endblock %}
